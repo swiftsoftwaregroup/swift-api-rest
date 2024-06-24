@@ -31,7 +31,7 @@ source configure.sh
 ./watch.sh
 ```
 
-Browse the docs and test the API using SwaggerUI:
+Browse the docs and test the API via the Swagger UI:
 
 ```bash
 open http://127.0.0.1:8001/docs

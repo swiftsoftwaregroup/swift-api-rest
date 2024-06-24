@@ -75,3 +75,9 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[tool.black]
+line-length = 200
+
+[tool.pylint.format]
+max-line-length = 200

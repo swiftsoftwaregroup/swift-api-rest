@@ -34,4 +34,7 @@ pip install -r requirements-dev.txt
 # install package itself
 pip install -e .
 
+# create .env file for local testing 
+echo 'DATABASE_URL=sqlite:///./books.db' > .env
+
 popd > /dev/null

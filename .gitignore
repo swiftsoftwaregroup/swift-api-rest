@@ -161,4 +161,9 @@ cython_debug/
 
 .filedump
 
+# openapi-generator
 *.jar
+
+# data
+books.db
+test.db

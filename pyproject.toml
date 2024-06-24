@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "swift-api-rest"
+name = "swift-api"
 dynamic = ["version"]
 description = ''
 readme = "README.md"

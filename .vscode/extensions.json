@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "ms-python.black-formatter",
+        "ms-python.python",
+        "ms-python.debugpy",
+        "mhutchie.git-graph",
+        "ms-azuretools.vscode-docker"
+    ]
+}

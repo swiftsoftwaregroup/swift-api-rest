@@ -1,0 +1,10 @@
+hatch
+pytest
+coverage
+httpx
+black
+isort
+mypy
+invoke
+
+-r requirements.txt

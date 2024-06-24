@@ -1,0 +1,4 @@
+python-keycloak==3.9.1
+python-jose[cryptography]==3.3.0
+fastapi[all]==0.111.0
+uvicorn==0.30.1

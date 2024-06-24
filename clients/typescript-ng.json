@@ -1,5 +1,5 @@
 {
-    "npmName": "swift-api-client",
+    "npmName": "swift-api-client-ng",
     "npmVersion": "0.1.0",
     "fileNaming": "kebab-case",
     "ngVersion": 17.2

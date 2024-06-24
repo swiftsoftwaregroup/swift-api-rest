@@ -23,7 +23,7 @@ app.add_middleware(
 # Web API
 @app.get("/", tags=["Root"])
 async def get_root():
-    return {"message": "Swift REST API"}
+    return {"message": "Swift API REST"}
 
 
 @app.get("/ping", tags=["Root"])

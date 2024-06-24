@@ -98,13 +98,7 @@ List available generators:
 java -jar openapi-generator-cli.jar list
 ```
 
-### TypeScript
-
-#### List config options
-
-```bash
-java -jar openapi-generator-cli.jar config-help --generator-name typescript
-```
+### Angular (TypeScript)
 
 #### Generate `swift-api-rest-ng` 
 
@@ -125,6 +119,14 @@ inv update-client-ng
 ```
 
 That will generate Angular Typescript client in `../swift-api-rest-ng`. 
+
+##### List config options
+
+```bash
+java -jar openapi-generator-cli.jar config-help --generator-name typescript-angular
+```
+
+You can customize the generator by updating the [typescript-ng.json](./client/typescript-ng.json).
 
 ## License
 

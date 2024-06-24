@@ -15,6 +15,6 @@ def podman_delete(ctx):
 
 
 @task
-def update_typescript_client(ctx):
-    """Update the TypeScript client code in `../swift_api_client`"""
-    ctx.run("./scripts/update-typescript-client.sh", pty=True)
+def update_client_ng(ctx):
+    """Update the TypeScript client code in `../swift-api-rest-ng`"""
+    ctx.run("./scripts/update-client-ng.sh", pty=True)

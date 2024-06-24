@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "swift-api"
+name = "swift-api-rest"
 dynamic = ["version"]
 description = ''
 readme = "README.md"
@@ -23,9 +23,9 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Documentation = "https://github.com/vkantchev/swift-api#readme"
-Issues = "https://github.com/vkantchev/swift-api/issues"
-Source = "https://github.com/vkantchev/swift-api"
+Documentation = "https://github.com/vkantchev/swift-api-rest#readme"
+Issues = "https://github.com/vkantchev/swift-api-rest/issues"
+Source = "https://github.com/vkantchev/swift-api-rest"
 
 [tool.hatch.version]
 path = "src/swift_api/__about__.py"

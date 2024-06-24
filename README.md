@@ -1,8 +1,9 @@
-# swift-api
+# swift-api-rest
+
 Template project for REST Web API using Python and FastAPI
 
-[![PyPI - Version](https://img.shields.io/pypi/v/py-fastapi-rest.svg)](https://pypi.org/project/swift-api)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/swift-api.svg)](https://pypi.org/project/swift-api)
+[![PyPI - Version](https://img.shields.io/pypi/v/swift-api-rest.svg)](https://pypi.org/project/swift-api-rest)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/swift-api-rest.svg)](https://pypi.org/project/swift-api-rest)
 
 -----
 
@@ -15,12 +16,12 @@ Template project for REST Web API using Python and FastAPI
 ## Installation
 
 ```bash
-pip install swift-api
+pip install swift-api-rest
 ```
 
 ## License
 
-`swift-api` is distributed under the terms of the [Apache 2.0 ](https://spdx.org/licenses/Apache-2.0.html) license.
+`swift-api-rest` is distributed under the terms of the [Apache 2.0 ](https://spdx.org/licenses/Apache-2.0.html) license.
 
 ## Run
 

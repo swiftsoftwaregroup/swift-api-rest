@@ -9,7 +9,7 @@
       "type": "debugpy",
       "request": "launch",
       "module": "uvicorn",
-      "args": ["swift_api.app:app", "--port", "8001", "--reload"],
+      "args": ["swift_api_rest.app:app", "--port", "8001", "--reload"],
       "jinja": true
     }
   ]

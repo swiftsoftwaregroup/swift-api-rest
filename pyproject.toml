@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "swift-api"
+name = "swift-api-rest"
 dynamic = ["version"]
 description = ''
 readme = "README.md"
@@ -28,7 +28,7 @@ Issues = "https://github.com/vkantchev/swift-api-rest/issues"
 Source = "https://github.com/vkantchev/swift-api-rest"
 
 [tool.hatch.version]
-path = "src/swift_api/__about__.py"
+path = "src/swift_api_rest/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
@@ -55,18 +55,18 @@ dependencies = [
   "mypy>=1.0.0",
 ]
 [tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:src/swift_api test}"
+check = "mypy --install-types --non-interactive {args:src/swift_api_rest test}"
 
 [tool.coverage.run]
-source_pkgs = ["swift_api", "test"]
+source_pkgs = ["swift_api_rest", "test"]
 branch = true
 parallel = true
 omit = [
-  "src/swift_api/__about__.py",
+  "src/swift_api_rest/__about__.py",
 ]
 
 [tool.coverage.paths]
-swift_api = ["src/swift_api", "*/swift-api-rest/src/swift_api"]
+swift_api_rest = ["src/swift_api_rest", "*/swift-api-rest/src/swift_api_rest"]
 test = ["test", "*/swift-api-rest/test"]
 
 [tool.coverage.report]

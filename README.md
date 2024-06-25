@@ -55,9 +55,7 @@ pytest
 Generate test coverage report:
 
 ```bash
-coverage run -m pytest
-coverage combine
-coverage report
+coverage run -m pytest && coverage combine && coverage report
 ```
 
 ## Tasks
@@ -98,7 +96,37 @@ List available generators:
 java -jar openapi-generator-cli.jar list
 ```
 
-### Angular (TypeScript)
+### React / Fetch (TypeScript)
+
+#### Generate `swift-api-rest-react` 
+
+##### Start Server
+
+In Terminal in Visual Studio Code:
+
+```bash
+./watch.sh
+```
+
+##### Create / Update React client
+
+In separate Terminal:
+
+```bash
+inv update-client-react
+```
+
+That will generate Fetch Typescript client in `../swift-api-rest-react`. 
+
+##### List config options
+
+```bash
+java -jar openapi-generator-cli.jar config-help --generator-name typescript-fetch
+```
+
+You can customize the generator by updating the [typescript-react.json](./client/typescript-react.json).
+
+### Angular / HttpClient (TypeScript)
 
 #### Generate `swift-api-rest-ng` 
 

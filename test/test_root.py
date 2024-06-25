@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from swift_api.app import app
+from swift_api_rest.app import app
 
 client = TestClient(app)
 

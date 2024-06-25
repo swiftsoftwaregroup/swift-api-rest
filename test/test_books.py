@@ -6,8 +6,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
-from swift_api.models_db import Base, BookModel
-from swift_api.app import app, get_db
+from swift_api_rest.models_db import Base, BookModel
+from swift_api_rest.app import app, get_db
 
 # use in-memory SQLite database for testing
 SQLALCHEMY_DATABASE_URL = "sqlite://"
@@ -49,14 +49,14 @@ def clean_table(test_fixture):
 def test_create_book(test_fixture):
     response = test_fixture.post(
         "/books/",
-        json={"title": "Test Book", "author": "Test Author", "date_published": "2023-01-01", "cover_image": "http://example.com/cover.jpg"}
+        json={"title": "Test Book", "author": "Test Author", "date_published": "2024-06-24", "cover_image": "http://example.com/cover.jpg"}
     )
     assert response.status_code == 200
     
     data = response.json()
     assert data["title"] == "Test Book"
     assert data["author"] == "Test Author"
-    assert data["date_published"] == "2023-01-01"
+    assert data["date_published"] == "2024-06-24"
     assert data["cover_image"] == "http://example.com/cover.jpg"
     assert "id" in data
 
@@ -64,7 +64,7 @@ def test_create_book(test_fixture):
 def test_read_books(test_fixture):
     test_fixture.post(
         "/books/",
-        json={"title": "Test Book", "author": "Test Author", "date_published": "2023-01-01", "cover_image": "http://example.com/cover.jpg"}
+        json={"title": "Test Book", "author": "Test Author", "date_published": "2024-06-24", "cover_image": "http://example.com/cover.jpg"}
     )
     
     response = test_fixture.get("/books/")
@@ -78,7 +78,7 @@ def test_read_books(test_fixture):
 def test_read_book(test_fixture):
     create_response = test_fixture.post(
         "/books/",
-        json={"title": "Test Book", "author": "Test Author", "date_published": "2023-01-01", "cover_image": "http://example.com/cover.jpg"}
+        json={"title": "Test Book", "author": "Test Author", "date_published": "2024-06-24", "cover_image": "http://example.com/cover.jpg"}
     )
     book_id = create_response.json()["id"]
     
@@ -92,7 +92,7 @@ def test_read_book(test_fixture):
 def test_update_book(test_fixture):
     create_response = test_fixture.post(
         "/books/",
-        json={"title": "Test Book", "author": "Test Author", "date_published": "2023-01-01", "cover_image": "http://example.com/cover.jpg"}
+        json={"title": "Test Book", "author": "Test Author", "date_published": "2024-06-24", "cover_image": "http://example.com/cover.jpg"}
     )
     book_id = create_response.json()["id"]
     
@@ -112,7 +112,7 @@ def test_update_book(test_fixture):
 def test_delete_book(test_fixture):
     create_response = test_fixture.post(
         "/books/",
-        json={"title": "Test Book", "author": "Test Author", "date_published": "2023-01-01", "cover_image": "http://example.com/cover.jpg"}
+        json={"title": "Test Book", "author": "Test Author", "date_published": "2024-06-24", "cover_image": "http://example.com/cover.jpg"}
     )
     book_id = create_response.json()["id"]
     

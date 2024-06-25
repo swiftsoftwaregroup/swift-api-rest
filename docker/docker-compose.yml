@@ -9,6 +9,8 @@ services:
     networks:
       - public
       - private
+    environment:
+      - DATABASE_URL = 'sqlite:///:memory:'
 networks:
   public:
   private:

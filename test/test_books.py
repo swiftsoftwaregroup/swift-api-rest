@@ -10,7 +10,7 @@ from swift_api_rest.models_db import Base, BookModel
 from swift_api_rest.app import app, get_db
 
 # use in-memory SQLite database for testing
-SQLALCHEMY_DATABASE_URL = "sqlite://"
+SQLALCHEMY_DATABASE_URL = "sqlite:///:memory:"
 
 # use ./test.db SQLite database for testing
 # SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"

@@ -14,7 +14,11 @@ from .models_api import Book, BookCreate
 Base.metadata.create_all(bind=engine)
 
 # Create the FastAPI app
-app = FastAPI()
+app = FastAPI(
+    title="Book Management API",
+    description="A simple API for managing books",
+    version="1.0.0"
+)
 
 # CORS
 origins = [
@@ -33,34 +37,61 @@ app.add_middleware(
 # Web API
 @app.get("/", tags=["Root"])
 async def get_root():
+    """
+    The root endpoint can serve as healthcheck
+    """    
     return {"message": "Swift API REST"}
 
 @app.get("/ping", tags=["Root"])
 async def ping():
+    """
+    Simple endpoint to test API liveness
+    """    
     return "PONG"
 
-@app.post("/books/", response_model=Book)
+
+# Tags for API documentation
+tags_metadata = [
+    {
+        "name": "books",
+        "description": "Operations with books. Manage the book inventory."
+    }
+]
+
+@app.post("/books/", response_model=Book, tags=["books"])
 def create_book(book: BookCreate, db: Session = Depends(get_db)):
+    """
+    Create a new book with the given details.
+    """    
     db_book = BookModel(**book.dict())
     db.add(db_book)
     db.commit()
     db.refresh(db_book)
     return db_book
 
-@app.get("/books/", response_model=List[Book])
+@app.get("/books/", response_model=List[Book], tags=["books"])
 def read_books(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    """
+    Retrieve a list of books. You can specify how many to skip and the limit of books to return.
+    """    
     books = db.query(BookModel).offset(skip).limit(limit).all()
     return books
 
-@app.get("/books/{book_id}", response_model=Book)
+@app.get("/books/{book_id}", response_model=Book, tags=["books"])
 def read_book(book_id: int, db: Session = Depends(get_db)):
+    """
+    Retrieve a specific book by its ID.
+    """    
     book = db.query(BookModel).filter(BookModel.id == book_id).first()
     if book is None:
         raise HTTPException(status_code=404, detail="Book not found")
     return book
 
-@app.put("/books/{book_id}", response_model=Book)
+@app.put("/books/{book_id}", response_model=Book, tags=["books"])
 def update_book(book_id: int, book: BookCreate, db: Session = Depends(get_db)):
+    """
+    Update a book's information given its ID.
+    """    
     db_book = db.query(BookModel).filter(BookModel.id == book_id).first()
     if db_book is None:
         raise HTTPException(status_code=404, detail="Book not found")
@@ -70,8 +101,11 @@ def update_book(book_id: int, book: BookCreate, db: Session = Depends(get_db)):
     db.refresh(db_book)
     return db_book
 
-@app.delete("/books/{book_id}", response_model=Book)
+@app.delete("/books/{book_id}", response_model=Book, tags=["books"])
 def delete_book(book_id: int, db: Session = Depends(get_db)):
+    """
+    Delete a book given its ID.
+    """    
     book = db.query(BookModel).filter(BookModel.id == book_id).first()
     if book is None:
         raise HTTPException(status_code=404, detail="Book not found")

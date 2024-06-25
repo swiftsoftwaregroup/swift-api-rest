@@ -101,6 +101,58 @@ Delete container and image:
 inv podman-delete
 ```
 
+## Deploy to AWS
+
+### AWS Amplify CLI
+
+Follow [Set up Amplify CLI](https://docs.amplify.aws/gen1/javascript/tools/cli/start/set-up-cli) to install the AWS Amplify CLI.
+
+### Deploy
+
+Initialize the Amplify project:
+
+```bash
+amplify init
+```
+
+Enable container-based deployments (advanced option):
+
+```bash
+amplify configure project
+```
+
+Add API backend:
+
+```bash
+amplify add api
+```
+
+Copy app code (replace `containerff290074` with the resource name that Amplify generates for you):
+
+```bash
+amplify_dir=./amplify/backend/api/containerff290074/src
+
+# App 
+cp -r src $amplify_dir/
+cp requirements.txt $amplify_dir/
+
+# Docker
+cp docker/Dockerfile $amplify_dir/
+cp docker/docker-compose.yml $amplify_dir/
+```
+
+Deploy service:
+
+```bash
+amplify push
+```
+
+NOTE:
+
+* `amplify push`  will build all your local backend resources and provision it in the cloud.
+
+* `amplify publish` will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud.
+
 ## Generate API Clients
 
 ### Setup
@@ -313,58 +365,6 @@ def create_book(db: Session, book: BookCreate):
         db.rollback()
         raise
 ```
-
-## Deploy to AWS
-
-### AWS Amplify CLI
-
-Follow [Set up Amplify CLI](https://docs.amplify.aws/gen1/javascript/tools/cli/start/set-up-cli) to install the AWS Amplify CLI.
-
-### Deploy
-
-Initialize the Amplify project:
-
-```bash
-amplify init
-```
-
-Enable container-based deployments (advanced option):
-
-```bash
-amplify configure project
-```
-
-Add API backend:
-
-```bash
-amplify add api
-```
-
-Copy app code (replace `containerff290074` with the resource name that Amplify generates for you):
-
-```bash
-amplify_dir=./amplify/backend/api/containerff290074/src
-
-# App 
-cp -r src $amplify_dir/
-cp requirements.txt $amplify_dir/
-
-# Docker
-cp docker/Dockerfile $amplify_dir/
-cp docker/docker-compose.yml $amplify_dir/
-```
-
-Deploy service:
-
-```bash
-amplify push
-```
-
-NOTE:
-
-* `amplify push`  will build all your local backend resources and provision it in the cloud.
-
-* `amplify publish` will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud.
 
 ## License
 

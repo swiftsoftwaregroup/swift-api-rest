@@ -21,7 +21,7 @@ open http://127.0.0.1:8001/docs
 Browse the docs using Redoc. This is an alternative to the Swagger UI:
 
 ```bash
-http://127.0.0.1:8001/redoc
+open http://127.0.0.1:8001/redoc
 ```
 
 ## Updating the code

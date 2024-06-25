@@ -27,7 +27,7 @@ Documentation = "https://github.com/vkantchev/swift-api-rest#readme"
 Issues = "https://github.com/vkantchev/swift-api-rest/issues"
 Source = "https://github.com/vkantchev/swift-api-rest"
 
-[[tool.hatch.envs.all.matrix]]
+[[tool.hatch.envs.default.matrix]]
 python = ["3.12", "3.11", "3.10"]
 
 [tool.hatch.version]

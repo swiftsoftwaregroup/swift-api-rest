@@ -58,10 +58,10 @@ Generate test coverage report:
 coverage run -m pytest && coverage combine && coverage report
 ```
 
-Run tests in multiple python environments:
+Run tests in multiple python environments (will run for 3.12, 3.11, 3.10):
 
 ```sh
-tox
+hatch run test
 ```
 
 ## Tasks

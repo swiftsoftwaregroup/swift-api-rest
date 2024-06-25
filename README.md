@@ -77,30 +77,6 @@ Run tests in multiple python environments (will run for 3.12, 3.11, 3.10):
 hatch run test
 ```
 
-## Tasks
-
-List tasks:
-
-```bash
-inv --list
-```
-
-## Run in Podman / Docker 
-
-> In order to do this you will need Podman. See [Setup Podman on macOS](./docs/setup-podman-macos.md) for details.
-
-Rebuild container image and start container:
-
-```bash
-inv podman
-```
-
-Delete container and image:
-
-```bash
-inv podman-delete
-```
-
 ## Deploy to AWS
 
 ### AWS Amplify CLI
@@ -152,6 +128,22 @@ NOTE:
 * `amplify push`  will build all your local backend resources and provision it in the cloud.
 
 * `amplify publish` will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud.
+
+## Run in Podman / Docker 
+
+> In order to do this you will need Podman. See [Setup Podman on macOS](./docs/setup-podman-macos.md) for details.
+
+Rebuild container image and start container:
+
+```bash
+inv podman
+```
+
+Delete container and image:
+
+```bash
+inv podman-delete
+```
 
 ## Generate API Clients
 
@@ -364,6 +356,14 @@ def create_book(db: Session, book: BookCreate):
     except SQLAlchemyError:
         db.rollback()
         raise
+```
+
+## Invoke Tasks
+
+List tasks:
+
+```bash
+inv --list
 ```
 
 ## License

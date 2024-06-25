@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   swiftapirest:
     build:
@@ -11,6 +12,7 @@ services:
       - private
     environment:
       - DATABASE_URL = 'sqlite://'
+
 networks:
   public:
   private:

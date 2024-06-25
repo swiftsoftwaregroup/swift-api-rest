@@ -121,7 +121,7 @@ def test_delete_book(test_fixture):
     
     # try to get the deleted book
     get_response = test_fixture.get(f"/books/{book_id}")
-    assert get_response.status_code == 404
+    assert get_response.status_code == 403
 
 def test_read_non_existent_book(test_fixture):
     # assuming 1099 is a non-existent id

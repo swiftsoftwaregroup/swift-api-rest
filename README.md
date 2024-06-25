@@ -80,6 +80,12 @@ Delete container and image:
 inv podman-delete
 ```
 
+Run tests in multiple python environments:
+
+```sh
+tox
+```
+
 ## Generate API Clients
 
 ### Setup

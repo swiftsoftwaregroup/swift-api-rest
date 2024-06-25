@@ -5,6 +5,9 @@ httpx
 black
 isort
 mypy
+tox
+tox-gh-actions
 invoke
+
 
 -r requirements.txt

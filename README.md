@@ -58,6 +58,12 @@ Generate test coverage report:
 coverage run -m pytest && coverage combine && coverage report
 ```
 
+Run tests in multiple python environments:
+
+```sh
+tox
+```
+
 ## Tasks
 
 List tasks:
@@ -78,12 +84,6 @@ Delete container and image:
 
 ```bash
 inv podman-delete
-```
-
-Run tests in multiple python environments:
-
-```sh
-tox
 ```
 
 ## Generate API Clients

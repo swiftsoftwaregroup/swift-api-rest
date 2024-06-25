@@ -98,14 +98,14 @@ def test_update_book(test_fixture):
     
     response = test_fixture.put(
         f"/books/{book_id}",
-        json={"title": "Updated Book", "author": "Updated Author", "date_published": "2023-02-01", "cover_image": "http://example.com/updated_cover.jpg"}
+        json={"title": "Updated Book", "author": "Updated Author", "date_published": "2024-06-01", "cover_image": "http://example.com/updated_cover.jpg"}
     )
     assert response.status_code == 200
     
     data = response.json()
     assert data["title"] == "Updated Book"
     assert data["author"] == "Updated Author"
-    assert data["date_published"] == "2023-02-01"
+    assert data["date_published"] == "2024-06-01"
     assert data["cover_image"] == "http://example.com/updated_cover.jpg"
 
 
@@ -121,7 +121,7 @@ def test_delete_book(test_fixture):
     
     # try to get the deleted book
     get_response = test_fixture.get(f"/books/{book_id}")
-    assert get_response.status_code == 403
+    assert get_response.status_code == 404
 
 def test_read_non_existent_book(test_fixture):
     # assuming 1099 is a non-existent id
@@ -133,7 +133,7 @@ def test_update_non_existent_book(test_fixture):
     # assuming 1099 is a non-existent id
     response = test_fixture.put(
         "/books/1099",
-        json={"title": "Updated Book", "author": "Updated Author", "date_published": "2023-02-01", "cover_image": "http://example.com/updated_cover.jpg"}
+        json={"title": "Updated Book", "author": "Updated Author", "date_published": "2024-06-01", "cover_image": "http://example.com/updated_cover.jpg"}
     )
     assert response.status_code == 404
 

@@ -1,11 +1,11 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-requirements-txt"]
 build-backend = "hatchling.build"
 
 [project]
 name = "swift-api-rest"
-dynamic = ["version"]
-description = ''
+dynamic = ["version", "dependencies"]
+description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
@@ -21,41 +21,33 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 
-dependencies = []
 
 [project.urls]
 Documentation = "https://github.com/vkantchev/swift-api-rest#readme"
 Issues = "https://github.com/vkantchev/swift-api-rest/issues"
 Source = "https://github.com/vkantchev/swift-api-rest"
 
-[tool.hatch.version]
-path = "src/swift_api_rest/__about__.py"
-
-[tool.hatch.envs.default]
-dependencies = [
-  "coverage[toml]>=6.5",
-  "pytest",
-]
-
-[tool.hatch.envs.default.scripts]
-test = "pytest {args:tests}"
-test-cov = "coverage run -m pytest {args:tests}"
-cov-report = [
-  "- coverage combine",
-  "coverage report",
-]
-cov = [
-  "test-cov",
-  "cov-report",
-]
-
 [[tool.hatch.envs.all.matrix]]
 python = ["3.12", "3.11", "3.10"]
 
+[tool.hatch.version]
+path = "src/swift_api_rest/__about__.py"
+
+[tool.hatch.metadata.hooks.requirements_txt]
+files = ["requirements.txt"]
+
+[tool.hatch.envs.default]
+dependencies = ["pytest", "coverage[toml]"]
+
+[tool.hatch.envs.default.scripts]
+test = "pytest"
+test-cov = "coverage run -m pytest"
+cov-report = ["coverage combine", "coverage report"]
+cov = ["test-cov", "cov-report"]
+
 [tool.hatch.envs.types]
-dependencies = [
-  "mypy>=1.0.0",
-]
+dependencies = ["mypy"]
+
 [tool.hatch.envs.types.scripts]
 check = "mypy --install-types --non-interactive {args:src/swift_api_rest test}"
 
@@ -63,9 +55,7 @@ check = "mypy --install-types --non-interactive {args:src/swift_api_rest test}"
 source_pkgs = ["swift_api_rest", "test"]
 branch = true
 parallel = true
-omit = [
-  "src/swift_api_rest/__about__.py",
-]
+omit = ["src/swift_api_rest/__about__.py"]
 
 [tool.coverage.paths]
 swift_api_rest = ["src/swift_api_rest", "*/swift-api-rest/src/swift_api_rest"]

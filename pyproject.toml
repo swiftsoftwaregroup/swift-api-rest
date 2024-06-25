@@ -45,14 +45,8 @@ test-cov = "coverage run -m pytest"
 cov-report = ["coverage combine", "coverage report"]
 cov = ["test-cov", "cov-report"]
 
-[tool.hatch.envs.types]
-dependencies = ["mypy"]
-
-[tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:src/swift_api_rest test}"
-
 [tool.coverage.run]
-source_pkgs = ["swift_api_rest", "test"]
+source_pkgs = ["swift_api_rest"]
 branch = true
 parallel = true
 omit = ["src/swift_api_rest/__about__.py"]

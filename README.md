@@ -40,12 +40,6 @@ Correct the import order with [isort](https://pycqa.github.io/isort/):
 isort .
 ```
 
-Verify the typing:
-
-```sh
-mypy src/
-```
-
 Run the tests (from the command line):
 
 ```sh

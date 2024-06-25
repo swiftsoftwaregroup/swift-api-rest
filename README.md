@@ -168,7 +168,7 @@ You can customize the generator by updating the [typescript-ng.json](./client/ty
 
 ## Additional Considerations
 
-In reality a book could be from many Authors and one Author could write several books. This diagram illustrates the database schema:
+In reality a book could be from many Authors and one Author could write several books. This diagram illustrates the database schema that accomodates those relationships:
 
 ```mermaid 
 erDiagram

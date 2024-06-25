@@ -4,6 +4,11 @@ This project implements a simple API just to illustrate how one would go about i
 
 Currently for simplicity the database is just one table. However in a real world application there should probably be a separate table for Author and a BookAuthor table that links Books and Authors. See [Additional Considerations](#additional-considerations) below.
 
+## Setup
+
+* [Setup for macOS](./docs/setup-macos.md)
+* [Setup for Ubuntu Linux](./docs/setup-linux.md)
+
 ## Run
 
 ```bash

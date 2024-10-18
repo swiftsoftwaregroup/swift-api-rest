@@ -24,6 +24,10 @@ app = FastAPI(
 origins = [
     # local testing with Angular
     "http://localhost:4200",
+
+    # local testing with React+Vite
+    "http://localhost:4173",
+    "http://localhost:5173",
 ]
 
 app.add_middleware(
